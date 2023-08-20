@@ -9,5 +9,14 @@ return [
     'edit_price_provider_success' => 'Successfully edited price provider.',
     'timeout_placeholder' => 'Enter a timeout in seconds',
     'timeout' => 'API Request Timeout (seconds)',
-    'timeout_description' => 'If the EvePraisal instance doesn\'t respond within this time, an error will be thrown.'
+    'timeout_description' => 'If the EvePraisal instance doesn\'t respond within this time, an error will be thrown.',
+    'price_type' => 'Price Type',
+    'sell' => 'Sell Prices',
+    'buy' => 'Buy Prices',
+    'price_variant' => 'Price Variant',
+    'max'=>'Maximum',
+    'min'=>'Minimum',
+    'avg'=>'Average',
+    'median'=>'Median',
+    'percentile'=>'Percentile'
 ];

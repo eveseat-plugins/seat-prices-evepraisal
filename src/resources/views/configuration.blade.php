@@ -32,6 +32,25 @@
                     <small class="text-muted">{{ trans('evepraisalpriceprovider::evepraisal.timeout_description') }}</small>
                 </div>
 
+                <div class="form-group">
+                    <label for="price_type">{{ trans('evepraisalpriceprovider::evepraisal.price_type') }}</label>
+                    <select name="price_type" id="price_type" class="form-control" required>
+                        <option value="sell" @if(!$is_buy) selected @endif>{{ trans('evepraisalpriceprovider::evepraisal.sell') }}</option>
+                        <option value="buy" @if($is_buy) selected @endif>{{ trans('evepraisalpriceprovider::evepraisal.buy') }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="price_variant">{{ trans('evepraisalpriceprovider::evepraisal.price_variant') }}</label>
+                    <select name="price_variant" id="price_variant" class="form-control" required>
+                        <option value="max" @if($price_variant==='max') selected @endif>{{ trans('evepraisalpriceprovider::evepraisal.max') }}</option>
+                        <option value="min" @if($price_variant==='min') selected @endif>{{ trans('evepraisalpriceprovider::evepraisal.min') }}</option>
+                        <option value="avg" @if($price_variant==='avg') selected @endif>{{ trans('evepraisalpriceprovider::evepraisal.avg') }}</option>
+                        <option value="median" @if($price_variant==='median') selected @endif>{{ trans('evepraisalpriceprovider::evepraisal.median') }}</option>
+                        <option value="percentile" @if($price_variant==='percentile') selected @endif>{{ trans('evepraisalpriceprovider::evepraisal.percentile') }}</option>
+                    </select>
+                </div>
+
                 <button type="submit" class="btn btn-primary">{{ trans('pricescore::priceprovider.save')  }}</button>
             </form>
         </div>

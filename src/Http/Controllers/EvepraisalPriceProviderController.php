@@ -15,8 +15,10 @@ class EvepraisalPriceProviderController extends Controller
         $instance = $existing->configuration['evepraisal_instance'] ?? '';
         $id = $request->id;
         $timeout = $existing->configuration['timeout'] ?? 5;
+        $is_buy = $existing->configuration['is_buy'] ?? false;
+        $price_variant = $existing->configuration['variant'] ?? 'min';
 
-        return view('evepraisalpriceprovider::configuration', compact('name', 'instance', 'id', 'timeout'));
+        return view('evepraisalpriceprovider::configuration', compact('name', 'instance', 'id', 'timeout', 'is_buy', 'price_variant'));
     }
 
     public function configurationPost(Request $request) {
@@ -24,7 +26,9 @@ class EvepraisalPriceProviderController extends Controller
            'id'=>'nullable|integer',
            'name'=>'required|string',
            'instance'=>'required|string',
-            'timeout'=>'required|integer'
+            'timeout'=>'required|integer',
+            'price_type' => 'required|string|in:sell,buy',
+            'price_variant' => 'required|string|in:min,max,avg,median,percentile',
         ]);
 
         $model = PriceProviderInstance::findOrNew($request->id);
@@ -32,7 +36,9 @@ class EvepraisalPriceProviderController extends Controller
         $model->backend = 'recursivetree/seat-prices-evepraisal';
         $model->configuration = [
             'evepraisal_instance' => $request->instance,
-            'timeout' => $request->timeout
+            'timeout' => $request->timeout,
+            'is_buy' => $request->price_type === 'buy',
+            'variant' => $request->price_variant,
         ];
         $model->save();
 

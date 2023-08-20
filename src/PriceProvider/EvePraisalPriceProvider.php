@@ -65,7 +65,26 @@ class EvePraisalPriceProvider implements IPriceProviderBackend
         }
 
         foreach ($response->appraisal->items as $item){
-            $typeIDs[$item->typeID] = $item->prices->sell->max;
+            if($configuration['is_buy']) {
+                $price_bucket = $item->prices->buy;
+            } else {
+                $price_bucket = $item->prices->sell;
+            }
+
+            $variant = $configuration['variant'];
+            if($variant == 'min'){
+                $price = $price_bucket->min;
+            } elseif ($variant == 'max') {
+                $price = $price_bucket->max;
+            } elseif ($variant == 'avg') {
+                $price = $price_bucket->avg;
+            } elseif ($variant == 'median') {
+                $price = $price_bucket->median;
+            } else {
+                $price = $price_bucket->percentile;
+            }
+
+            $typeIDs[$item->typeID] = $price;
         }
 
         // step 3: Feed prices back to system
