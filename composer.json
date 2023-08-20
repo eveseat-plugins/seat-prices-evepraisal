@@ -1,0 +1,35 @@
+{
+  "name": "recursivetree/seat-prices-evepraisal",
+  "description": "EvePraisal clone price provider backend for recursivetree/seat-prices-core",
+  "license": "GPL-2.0",
+  "type": "seat-plugin",
+  "authors": [
+    {
+      "name": "recursivetree",
+      "email": "recursivetreemail@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "RecursiveTree\\Seat\\EvepraisalPriceProvider\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": "^8.2",
+    "laravel/framework": "^10.0",
+    "eveseat/web": "^5.0",
+    "eveseat/eveapi": "^5.0",
+    "eveseat/services": "^5.0",
+    "recursivetree/seat-prices-core": "dev-master",
+    "guzzlehttp/guzzle": "^7.0"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "RecursiveTree\\Seat\\EvepraisalPriceProvider\\EvepraisalPriceProviderServiceProvider"
+      ]
+    }
+  }
+}
