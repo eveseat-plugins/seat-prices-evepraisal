@@ -61,7 +61,7 @@ class EvePraisalPriceProvider implements IPriceProviderBackend
             //dd(str($response->getBody()));
             $response = json_decode($response->getBody(), false, 64, JSON_THROW_ON_ERROR);
         } catch (GuzzleException | JsonException $e) {
-            throw new PriceProviderException('Failed to load data from evepraisal',0,$e);
+            throw new PriceProviderException('Failed to load data from evepraisal: '.$e->getMessage(),0,$e);
         }
 
         foreach ($response->appraisal->items as $item){
