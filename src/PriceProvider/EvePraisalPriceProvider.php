@@ -6,10 +6,10 @@ use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Collection;
 use JsonException;
 use RecursiveTree\Seat\EvepraisalPriceProvider\EvepraisalPriceProviderServiceProvider;
-use RecursiveTree\Seat\PricesCore\Contracts\IPriceable;
 use RecursiveTree\Seat\PricesCore\Contracts\IPriceProviderBackend;
 use RecursiveTree\Seat\PricesCore\Exceptions\PriceProviderException;
-use RecursiveTree\Seat\PricesCore\Utils\UserAgentBuilder;
+use Seat\Services\Contracts\IPriceable;
+use Seat\Services\Helpers\UserAgentBuilder;
 
 class EvePraisalPriceProvider implements IPriceProviderBackend
 {
