@@ -22,7 +22,7 @@
     "eveseat/web": "^5.0",
     "eveseat/eveapi": "^5.0",
     "eveseat/services": "^5.0.1",
-    "recursivetree/seat-prices-core": "dev-master",
+    "recursivetree/seat-prices-core": "^1.0",
     "guzzlehttp/guzzle": "^7.0"
   },
   "extra": {
