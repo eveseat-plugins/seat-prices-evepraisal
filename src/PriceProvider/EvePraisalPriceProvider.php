@@ -25,6 +25,9 @@ class EvePraisalPriceProvider implements IPriceProviderBackend
      */
     public function getPrices(Collection $items, array $configuration): void
     {
+        // evepraisal doesn't like empty requests
+        if($items->isEmpty()) return;
+
         // step 1: Collect TypeIDs we are interested in
         $typeIDs = [];
         foreach ($items as $item){
