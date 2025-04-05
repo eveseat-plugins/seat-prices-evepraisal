@@ -18,5 +18,8 @@ return [
     'min'=>'Minimum',
     'avg'=>'Average',
     'median'=>'Median',
-    'percentile'=>'Percentile'
+    'percentile'=>'Percentile',
+    'evepraisal_market_placeholder'=>'jita',
+    'evepraisal_market_description'=>'Fill in the desired marketplace you want to ask the prices for. Use \'jita\' for Jita. For other marketplaces, inspect the options of the evepraisal instance you are using. (On modified instances, the name in the dropdown might not always correspond with a name the API accepts.)',
+    'evepraisal_market'=>'Market'
 ];

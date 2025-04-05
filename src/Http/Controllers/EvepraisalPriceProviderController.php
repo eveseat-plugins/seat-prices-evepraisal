@@ -13,22 +13,24 @@ class EvepraisalPriceProviderController extends Controller
 
         $name = $request->name ?? $existing->name;
         $instance = $existing->configuration['evepraisal_instance'] ?? '';
+        $market = $existing->configuration['market'] ?? 'jita';
         $id = $request->id;
         $timeout = $existing->configuration['timeout'] ?? 5;
         $is_buy = $existing->configuration['is_buy'] ?? false;
         $price_variant = $existing->configuration['variant'] ?? 'min';
 
-        return view('evepraisalpriceprovider::configuration', compact('name', 'instance', 'id', 'timeout', 'is_buy', 'price_variant'));
+        return view('evepraisalpriceprovider::configuration', compact('name', 'instance', 'market', 'id', 'timeout', 'is_buy', 'price_variant'));
     }
 
     public function configurationPost(Request $request) {
         $request->validate([
            'id'=>'nullable|integer',
            'name'=>'required|string',
+           'market'=>'required|string',
            'instance'=>'required|string',
-            'timeout'=>'required|integer',
-            'price_type' => 'required|string|in:sell,buy',
-            'price_variant' => 'required|string|in:min,max,avg,median,percentile',
+           'timeout'=>'required|integer',
+           'price_type' => 'required|string|in:sell,buy',
+           'price_variant' => 'required|string|in:min,max,avg,median,percentile',
         ]);
 
         $model = PriceProviderInstance::findOrNew($request->id);
@@ -39,6 +41,7 @@ class EvepraisalPriceProviderController extends Controller
             'timeout' => $request->timeout,
             'is_buy' => $request->price_type === 'buy',
             'variant' => $request->price_variant,
+            'market' => $request->market,
         ];
         $model->save();
 
