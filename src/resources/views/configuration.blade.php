@@ -27,6 +27,12 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="market">{{ trans('evepraisalpriceprovider::evepraisal.evepraisal_market') }}</label>
+                    <input required type="text" name="market" id="market" class="form-control" placeholder="{{ trans('evepraisalpriceprovider::evepraisal.evepraisal_market_placeholder') }}" value="{{ $market ?? 'jita' }}">
+                    <small class="text-muted">{{ trans('evepraisalpriceprovider::evepraisal.evepraisal_market_description') }}</small>
+                </div>                
+
+                <div class="form-group">
                     <label for="timeout">{{ trans('evepraisalpriceprovider::evepraisal.timeout') }}</label>
                     <input required type="number" name="timeout" id="timeout" class="form-control" placeholder="{{ trans('pricescore::settings.timeout_placeholder') }}" value="{{ $timeout ?? 5 }}" min="0" step="1">
                     <small class="text-muted">{{ trans('evepraisalpriceprovider::evepraisal.timeout_description') }}</small>

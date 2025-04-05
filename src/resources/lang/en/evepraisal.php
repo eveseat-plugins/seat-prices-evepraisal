@@ -18,5 +18,8 @@ return [
     'min'=>'Minimum',
     'avg'=>'Average',
     'median'=>'Median',
-    'percentile'=>'Percentile'
+    'percentile'=>'Percentile',
+    'evepraisal_market_placeholder'=>'jita',
+    'evepraisal_market_description'=>'Fill in the desired marketplace you want to ask the prices for',
+    'evepraisal_market'=>'Market'
 ];

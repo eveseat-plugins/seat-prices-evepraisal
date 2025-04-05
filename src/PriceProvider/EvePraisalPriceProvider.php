@@ -57,7 +57,8 @@ class EvePraisalPriceProvider implements IPriceProviderBackend
                     'persist'=>'no'
                 ],
                 'json' => [
-                    'market_name' => 'jita',
+                    //'market_name' => 'jita',
+                    'market_name' => $configuration['market'],
                     'items' =>$evepraisal_items,
                 ],
             ]);
