@@ -20,6 +20,6 @@ return [
     'median'=>'Median',
     'percentile'=>'Percentile',
     'evepraisal_market_placeholder'=>'jita',
-    'evepraisal_market_description'=>'Fill in the desired marketplace you want to ask the prices for. Use \'jita\' for Jita. For other marketplaces, inspect the options of the evepraisal instance you are using. (On modified instances, the name in the dropdown might not always correspond with a name the API accepts.)',
+    'evepraisal_market_description'=>'Fill in the desired marketplace you want to ask the prices for. Use \'jita\' for Jita. For other marketplaces, inspect the HTML <option> of the dropdown on your instance. The value property contains the value you are looking for.',
     'evepraisal_market'=>'Market'
 ];
